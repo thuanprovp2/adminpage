@@ -1,0 +1,85 @@
+<div class="widget-box">
+    <div class="widget-header">
+        <h4 class="widget-title">Create {{title}}</h4>
+    </div>
+    <div class="widget-body">
+        <div class="widget-main no-padding">
+            <form class="form-horizontal m-t-10" role="form" ng-submit="saveAccount()">
+                <div class="form-group">
+                    <label class="col-sm-2 control-label no-padding-right">Username</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" ng-model="account.username" placeholder="Username">
+                    </div>
+                </div>
+                <div class="form-group" ng-if="!account.id">
+                    <label class="col-sm-2 control-label no-padding-right">Password</label>
+                    <div class="col-sm-4">
+                        <input type="password" class="form-control"ng-model="account.password" placeholder="Password">
+                    </div>
+                </div>
+                <div class="form-group" ng-if="!account.id">
+                    <label class="col-sm-2 control-label no-padding-right">Confirm
+                        password</label>
+                    <div class="col-sm-4">
+                        <input type="password" ng-model="account.confirmPassword" class="form-control"
+                               placeholder="Confirm password">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label no-padding-right">Name</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" ng-model="account.name" placeholder="Your name">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label no-padding-right">Address</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" ng-model="account.address" placeholder="Address">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label no-padding-right">Phone</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" ng-model="account.phone" placeholder="Phone number">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label no-padding-right">Email</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" ng-model="account.email" placeholder="Email">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label no-padding-right">Gender</label>
+                    <div class="col-sm-4">
+                        <select class="form-control" ng-model="account.sex" id="gender">
+                            <option value="male" selected>Male</option>
+                            <option value="female">Female</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label no-padding-right">Role</label>
+                    <div class="col-sm-4">
+                        <select class="form-control" ng-model="account.role" id="role">
+                            <option value="admin" selected>Admin</option>
+                            <option value="teacher">User</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-3">
+                        <button class="btn btn-sm btn-info" type="submit">
+                            <i class="ace-icon fa fa-check bigger-110"></i>
+                            Save
+                        </button>
+                        <button class="btn btn-sm m-l-5" id="cancel" ng-click="changeView('back')">
+                            <i class="ace-icon fa fa-close bigger-110"></i>
+                            Cancel
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

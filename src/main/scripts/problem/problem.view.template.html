@@ -1,0 +1,57 @@
+<div class="widget-box">
+    <div class="widget-header">
+        <h4 class="widget-title">Details problem</h4>
+    </div>
+    <div class="widget-body">
+        <div class="widget-main no-padding">
+            <form class="form-horizontal m-t-10" role="form">
+                <div class="form-group">
+                    <label class="col-sm-2 control-label no-padding-right">Code</label>
+                    <label class="col-sm-4 control-label" style="text-align: left;">Code</label>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label no-padding-right">Status</label>
+                    <div class="col-sm-4">
+                        <select class="form-control" id="status" ng-model="class.status" disabled>
+                            <option ng-repeat="status in status.select" value="{{status.value}}">{{status.name}}
+                            </option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label no-padding-right">Language</label>
+                    <div class="col-sm-4">
+                        <select class="form-control" disabled id="language">
+                            <option value="c++">C++</option>
+                            <option value="java">Java</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label no-padding-right">File Path</label>
+                    <div class="col-sm-4">
+                        <input type="file" file-input="" id="id-input-file-2"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-3">
+                        <button class="btn btn-sm btn-info" type="button">
+                            <i class="ace-icon fa fa-check bigger-110"></i>
+                            Submit
+                        </button>
+                        <button class="btn btn-sm m-l-5" id="cancel-view" ng-click="changeView('back')">
+                            <i class="ace-icon fa fa-close bigger-110"></i>
+                            Cancel
+                        </button>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-12">
+                        <object data='https://laptrinh.online/Content/uploads/636132880275919282_admin_MAXMIN_2_1_MAXMIN.pdf'
+                                type='application/pdf' width='100%' height='600px'></object>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

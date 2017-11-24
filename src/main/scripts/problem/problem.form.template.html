@@ -1,0 +1,64 @@
+<div class="widget-box">
+    <div class="widget-header">
+        <h4 class="widget-title">Create problem</h4>
+    </div>
+    <div class="widget-body">
+        <div class="widget-main no-padding">
+            <form class="form-horizontal m-t-10">
+                <div class="form-group">
+                    <label class="col-sm-2 control-label no-padding-right">Name</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" ng-model="problem.name" placeholder="Name">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label no-padding-right">Code</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" ng-model="problem.code" placeholder="Code">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label no-padding-right">Description</label>
+                    <div class="col-sm-9">
+                        <div class="wysiwyg-editor" wysiwyg-editor ng-model="problem.description" id="editor1"></div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label no-padding-right">File Path</label>
+                    <div class="col-sm-4">
+                        <input type="file" file-input ng-model="problem.file" id="id-input-file-1"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label no-padding-right">Categories</label>
+                    <div class="col-sm-4">
+                        <select multiple="" class="chosen-select form-control" ng-model="problem.categories"
+                                id="form-field-select-4" data-placeholder="Choose a categories">
+                            <option ng-repeat="category in categories" value="{{category.id}}" multi-select>{{category.name}}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label no-padding-right">Status</label>
+                    <div class="col-sm-4">
+                        <select class="form-control" id="status" ng-model="class.status">
+                            <option ng-repeat="status in status.select" value="{{status.value}}">{{status.name}}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-3">
+                        <button class="btn btn-sm btn-info" type="button">
+                            <i class="ace-icon fa fa-check bigger-110"></i>
+                            Save
+                        </button>
+                        <button class="btn btn-sm m-l-5" id="cancel" ng-click="changeView('back')">
+                            <i class="ace-icon fa fa-close bigger-110"></i>
+                            Cancel
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

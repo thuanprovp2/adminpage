@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>
+<html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" ng-app="myApp" class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>My AngularJS App</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/sweetalert/dist/sweetalert.css" />
+    <!-- endbower -->
+
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <!-- bower:js -->
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-loader/angular-loader.js"></script>
+    <script src="bower_components/angular-mocks/angular-mocks.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="bower_components/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="bower_components/angular-sweetalert/SweetAlert.js"></script>
+    <!-- endbower -->
+
+    <!-- include: "type": "js", "files": "scripts/**/*.js" -->
+    <script src="scripts/app.js"></script>
+    <script src="scripts/category/category.controller.js"></script>
+    <script src="scripts/category/category.state.js"></script>
+    <script src="scripts/class/class.controller.js"></script>
+    <script src="scripts/class/class.state.js"></script>
+    <script src="scripts/component/sidebar/sidebar.controller.js"></script>
+    <script src="scripts/dashboard/dashboard.controller.js"></script>
+    <script src="scripts/dashboard/dashboard.state.js"></script>
+    <script src="scripts/language/language.controller.js"></script>
+    <script src="scripts/language/language.state.js"></script>
+    <script src="scripts/problem/problem.controller.js"></script>
+    <script src="scripts/problem/problem.state.js"></script>
+    <script src="scripts/scoreboard/scoreboard.controller.js"></script>
+    <script src="scripts/scoreboard/scoreboard.state.js"></script>
+    <script src="scripts/services/account.service.js"></script>
+    <script src="scripts/services/category.service.js"></script>
+    <script src="scripts/services/class.service.js"></script>
+    <script src="scripts/services/setting.service.js"></script>
+    <script src="scripts/services/token.service.js"></script>
+    <script src="scripts/setting/setting.controller.js"></script>
+    <script src="scripts/setting/setting.state.js"></script>
+    <script src="scripts/token/token.controller.js"></script>
+    <script src="scripts/token/token.state.js"></script>
+    <script src="scripts/user_account/account.controller.js"></script>
+    <script src="scripts/user_account/account.state.js"></script>
+    <script src="scripts/widget/app.constant.js"></script>
+    <script src="scripts/widget/button.widget.js"></script>
+    <script src="scripts/widget/datatable.widget.js"></script>
+    <script src="scripts/widget/dialog.widget.js"></script>
+    <script src="scripts/widget/directives/form.directive.js"></script>
+    <script src="scripts/widget/utils/date.utils.js"></script>
+    <script src="scripts/widget/utils/string.utils.js"></script>
+    <!-- /include -->
+
+    <!-- bootstrap & fontawesome -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="assets/font-awesome/4.5.0/css/font-awesome.min.css"/>
+
+    <!-- page specific plugin styles -->
+
+    <!-- text fonts -->
+    <link rel="stylesheet" href="assets/css/fonts.googleapis.com.css"/>
+
+    <!-- extra -->
+    <link rel="stylesheet" href="assets/css/extra.css"/>
+
+    <!-- lib -->
+    <link rel="stylesheet" href="assets/css/chosen.min.css"/>
+    <link rel="stylesheet" href="assets/css/bootstrap-datetimepicker.min.css"/>
+
+    <!-- ace styles -->
+    <link rel="stylesheet" href="assets/css/ace.min.css" class="ace-main-stylesheet" id="main-ace-style"/>
+
+    <!--[if lte IE 9]>
+    <link rel="stylesheet" href="assets/css/ace-part2.min.css" class="ace-main-stylesheet"/>
+    <![endif]-->
+    <link rel="stylesheet" href="assets/css/ace-skins.min.css"/>
+    <link rel="stylesheet" href="assets/css/ace-rtl.min.css"/>
+
+    <!--[if lte IE 9]>
+    <link rel="stylesheet" href="assets/css/ace-ie.min.css"/>
+    <![endif]-->
+</head>
+<body class="no-skin">
+<div ui-view="navbar"></div>
+<div class="main-container ace-save-state" id="main-container">
+    <div id="sidebar" class="sidebar">
+        <div ui-view="sidebar"></div>
+    </div>
+    <div ui-view="content"></div>
+    <div ui-view="footer"></div>
+</div>
+
+
+<!-- ace settings handler -->
+<script src="assets/js/ace-extra.min.js"></script>
+
+<!-- HTML5shiv and Respond.js for IE8 to support HTML5 elements and media queries -->
+
+<!--[if lte IE 8]>
+<script src="assets/js/html5shiv.min.js"></script>
+<script src="assets/js/respond.min.js"></script>
+<![endif]-->
+
+<!-- basic scripts -->
+
+<script type="text/javascript">
+    if ('ontouchstart' in document.documentElement) document.write("<script src='assets/js/jquery.mobile.custom.min.js'>" + "<" + "/script>");
+</script>
+<script src="assets/js/bootstrap.min.js"></script>
+
+<!-- page specific plugin scripts -->
+
+<!--[if lte IE 8]>
+<script src="assets/js/excanvas.min.js"></script>
+<![endif]-->
+<script src="assets/js/jquery-ui.custom.min.js"></script>
+<script src="assets/js/jquery.ui.touch-punch.min.js"></script>
+<script src="assets/js/jquery.flot.min.js"></script>
+<script src="assets/js/jquery.flot.resize.min.js"></script>
+
+<!-- page specific plugin scripts -->
+<script src="assets/js/jquery.dataTables.min.js"></script>
+<script src="assets/js/jquery.dataTables.bootstrap.min.js"></script>
+<script src="assets/js/dataTables.buttons.min.js"></script>
+<script src="assets/js/buttons.flash.min.js"></script>
+<script src="assets/js/buttons.html5.min.js"></script>
+<script src="assets/js/buttons.print.min.js"></script>
+<script src="assets/js/buttons.colVis.min.js"></script>
+<script src="assets/js/dataTables.select.min.js"></script>
+
+<!-- ace scripts -->
+<script src="assets/js/ace-elements.min.js"></script>
+<script src="assets/js/ace.min.js"></script>
+
+<script src="assets/js/jquery.maskedinput.min.js"></script>
+
+<script src="assets/js/chosen.jquery.min.js"></script>
+<script src="assets/js/moment.min.js"></script>
+<script src="assets/js/bootstrap-datetimepicker.min.js"></script>
+<script src="assets/js/jquery.maskedinput.min.js"></script>
+<script src="assets/js/bootstrap-wysiwyg.min.js"></script>
+</body>
+</html>
