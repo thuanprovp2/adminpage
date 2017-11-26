@@ -6,13 +6,13 @@
 angular.module('myApp')
     .config(function ($stateProvider) {
         $stateProvider
-            .state('class', {
+            .state('product', {
                 parent: 'site',
-                url: '/class',
+                url: '/product',
                 views: {
                     'content@': {
-                        templateUrl: 'scripts/class/class.html',
-                        controller: 'ClassController'
+                        templateUrl: 'scripts/product/product.html',
+                        controller: 'ProductController'
                     }
                 }
             });

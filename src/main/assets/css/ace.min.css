@@ -20632,3 +20632,10 @@ input.typeahead.scrollable ~ .tt-menu {
         border: 1px solid #666 !important
     }
 }
+.ellipsis {
+    text-overflow: ellipsis;
+
+    /* Required for text-overflow to do anything */
+    white-space: nowrap;
+    overflow: hidden;
+}

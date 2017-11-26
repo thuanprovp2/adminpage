@@ -5,28 +5,33 @@
 
 angular.module('myApp')
     .factory('AccountService', function ($http, API_URL) {
-        var account = 'list';
+        var user = 'list';
 
         return {
-            fetchAllTeacher: fetchAllTeacher,
+            fetchAllUser: fetchAllUser,
+            fetchAllRole:fetchAllRole,
             saveAccount: saveAccount,
             updateAccount: updateAccount,
             deleteAccount: deleteAccount
         };
 
-        function fetchAllTeacher() {
-            return $http.get([API_URL, account, '/fetch/all'].join(''));
+        function fetchAllUser() {
+            return $http.get([API_URL, user, '/fetch'].join(''));
         }
 
-        function deleteAccount() {
-            return $http.get([API_URL, 'delete'].join(''));
+        function deleteAccount(data) {
+            return $http.get([API_URL, 'user/delete?id=',data].join(''));
         }
 
         function saveAccount(data) {
-            return $http.post([API_URL, 'save'].join(''), data);
+            return $http.post([API_URL, 'user/create'].join(''), data);
         }
 
         function updateAccount(data) {
-            return $http.post([API_URL, 'save'].join(''), data);
+            return $http.post([API_URL, 'user/update'].join(''), data);
         }
+        function fetchAllRole() {
+            return $http.get([API_URL, 'role/fetch'].join(''));
+        }
+
     });

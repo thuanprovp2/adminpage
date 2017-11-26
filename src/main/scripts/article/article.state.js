@@ -6,13 +6,13 @@
 angular.module('myApp')
     .config(function ($stateProvider) {
         $stateProvider
-            .state('problem', {
+            .state('article', {
                 parent: 'site',
-                url: '/problem',
+                url: '/article',
                 views: {
                     'content@': {
-                        templateUrl: 'scripts/problem/problem.html',
-                        controller: 'ProblemController'
+                        templateUrl: 'scripts/article/article.html',
+                        controller: 'ArticleController'
                     }
                 }
             });

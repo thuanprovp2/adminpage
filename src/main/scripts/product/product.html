@@ -10,7 +10,7 @@
                     <i class="ace-icon fa fa-home home-icon"></i>
                     <a href="#">Home</a>
                 </li>
-                <li class="active">Categories</li>
+                <li class="active">Product</li>
             </ul><!-- /.breadcrumb -->
 
         </div>
@@ -18,13 +18,13 @@
         <div class="page-content">
             <div class="page-header">
                 <h1>
-                    Categories
+                    Product
                 </h1>
             </div><!-- /.page-header -->
 
             <div class="row">
-                <div class="col-xs-12" ng-if="status.step === 1" ng-include="'scripts/category/category.list.template.html'"></div>
-                <div class="col-xs-12 form" ng-if="status.step === 2" ng-include="'scripts/category/category.form.template.html'"></div>
+                <div class="col-xs-12" ng-if="status.step === 1" ng-include="'scripts/product/product.list.template.html'"></div>
+                <div class="col-xs-12" ng-if="status.step === 2" ng-include="'scripts/product/product.form.template.html'"></div>
             </div>
         </div><!-- /.page-content -->
     </div>

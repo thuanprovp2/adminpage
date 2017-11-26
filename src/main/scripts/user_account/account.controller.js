@@ -11,42 +11,50 @@ angular.module('myApp')
             type: $stateParams.type
         };
         $scope.title = StringUtils.capitalize($scope.status.type);
-        $scope.account = {};
+        $scope.user = {};
+        AccountService.fetchAllRole()
+            .then(function (response) {
+                $scope.roles = response.data;
+            })
+            .catch(function (err) {
+                alert('Load role that bai' + {message: err});
+            });
 
         $scope.changeView = function changeView(param) {
             $scope.status.step = param === 'back' ? $scope.status.step - 1 : $scope.status.step + 1;
             if (param === 'back') {
-                $scope.account = {};
+                $scope.user = {};
+                $scope.disableFormRole = false;
             }
         };
 
         $scope.saveAccount = function saveAccount() {
-            var method = $scope.account.id ? AccountService.updateAccount : AccountService.saveAccount;
-            method.call(null, $scope.account)
+            var method = $scope.user._id ? AccountService.updateAccount : AccountService.saveAccount;
+            method.call(null, $scope.user)
                 .then(Dialog.onSuccess.bind(null, 'Success', 'Save account success', $scope.changeView.bind(null, 'back')))
-                .catch(Dialog.onFailure.bind(null, 'Fail', 'Save account fail', null));
+                .catch(Dialog.onFailure.bind(null, 'Fail', 'Please full fill information', null));
         };
 
         var reloadListAccount = function reloadListAccount() {
             angular.element(document.querySelector('#accountDataTable')).DataTable().ajax.reload(null, false);
         };
 
-        $scope.deleteAccount = function deleteAccount(id) {
-            Dialog.deleteDialog('Do you want delete this class?', AccountService.deleteAccount.bind(null, id)
+        $scope.deleteAccount = function deleteAccount(data) {
+            Dialog.deleteDialog('Do you want delete this class?', AccountService.deleteAccount.bind(null, data._id)
                 , reloadListAccount.bind(null));
         };
 
         $scope.edit = function (data) {
             $scope.$apply(function () {
+                $scope.user = data;
                 $scope.changeView();
-                $scope.account = data;
-                $scope.account.dateOfBirth = DateUtils.convertMilToDate($scope.account.dateOfBirth);
+                $scope.disableFormRole = true;
             });
         };
 
         var loadAccountsList = function loadAccountsList() {
             var options = {
-                url: [API_URL, 'account/fetch'].join(''),
+                url: [API_URL, 'user/fetch'].join(''),
                 columns: [
                     {'title': 'ID', 'data': null},
                     {'title': 'Name', 'data': 'name'},
@@ -55,8 +63,7 @@ angular.module('myApp')
                     {'title': 'Phone', 'data': 'phone'},
                     {'title': 'Email', 'data': 'email'},
                     {'title': 'Sex', 'data': 'sex'},
-                    {'title': 'Role Id', 'data': 'roleId'},
-                    {'title': 'Name', 'data': 'name'},
+                    {'title': 'Name', 'data': 'role.name'},
                     {'': ''}
                 ],
                 columnDefs: [
