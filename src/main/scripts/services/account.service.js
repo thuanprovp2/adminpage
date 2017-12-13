@@ -24,6 +24,7 @@ angular.module('myApp')
         }
 
         function saveAccount(data) {
+            console.log(data);
             return $http.post([API_URL, 'user/create'].join(''), data);
         }
 

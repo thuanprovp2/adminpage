@@ -8,7 +8,7 @@
                 <div class="form-group">
                     <label class="col-sm-2 control-label no-padding-right">Username</label>
                     <div class="col-sm-4">
-                        <input type="text" class="form-control" ng-model="user.username" placeholder="Username" >
+                        <input type="text" class="form-control" ng-model="user.username" placeholder="Username" required>
                     </div>
                 </div>
                 <div class="form-group" ng-if="!user.id">
@@ -17,6 +17,7 @@
                         <input type="password" class="form-control" ng-model="user.password" placeholder="Password"
                                pattern="[\S]+"
                                title="Password not contain space"
+                               required
                         >
                     </div>
                 </div>
@@ -32,19 +33,19 @@
                 <div class="form-group">
                     <label class="col-sm-2 control-label no-padding-right">Name</label>
                     <div class="col-sm-4">
-                        <input type="text" class="form-control" ng-model="user.name" placeholder="Your name">
+                        <input type="text" class="form-control" ng-model="user.name" placeholder="Your name" required>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-sm-2 control-label no-padding-right">Address</label>
                     <div class="col-sm-4">
-                        <input type="text" class="form-control" ng-model="user.address" placeholder="Address">
+                        <input type="text" class="form-control" ng-model="user.address" placeholder="Address" required>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-sm-2 control-label no-padding-right">Phone</label>
                     <div class="col-sm-4">
-                        <input type="text" class="form-control" ng-model="user.phone" placeholder="Phone number" pattern="[0-9]{10,11}"
+                        <input type="text" class="form-control" ng-model="user.phone" placeholder="Phone number"
                                title="Type phone number between 10 to 11 number"
                         >
                     </div>
@@ -52,14 +53,14 @@
                 <div class="form-group">
                     <label class="col-sm-2 control-label no-padding-right">Email</label>
                     <div class="col-sm-4">
-                        <input type="email" class="form-control" ng-model="user.email" placeholder="Email">
+                        <input type="email" class="form-control" ng-model="user.email" placeholder="Email" required>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-sm-2 control-label no-padding-right">Gender</label>
                     <div class="col-sm-4">
-                        <select class="form-control" ng-model="user.sex" id="gender">
-                            <option value="male" selected>Male</option>
+                        <select class="form-control" ng-model="user.sex" id="gender" required>
+                            <option value="male">Male</option>
                             <option value="female">Female</option>
                         </select>
                     </div>
@@ -67,8 +68,8 @@
                 <div class="form-group">
                     <label class="col-sm-2 control-label no-padding-right">Role</label>
                     <div class="col-sm-4">
-                        <select class="form-control" ng-model="user.role._id" id="role" ng-disabled="disableFormRole">
-                            <option ng-repeat="role in roles.data" value="{{role._id}}">{{role.name}}</option>
+                        <select class="form-control" ng-model="user.role._id" id="role">
+                            <option ng-repeat="role in roles" value="{{role._id}}">{{role.name}}</option>
                         </select>
                     </div>
                 </div>

@@ -1,7 +1,4 @@
-/**
- * Created by lequanghiep on 1/16/2017.
- */
-'use strict';
+
 
 angular.module('myApp')
     .controller('ProductController', function ($scope, $stateParams, StringUtils, API_URL, Button, DateUtils

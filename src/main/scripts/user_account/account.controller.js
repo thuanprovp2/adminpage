@@ -14,7 +14,7 @@ angular.module('myApp')
         $scope.user = {};
         AccountService.fetchAllRole()
             .then(function (response) {
-                $scope.roles = response.data;
+                $scope.roles = response.data.data;
             })
             .catch(function (err) {
                 alert('Load role that bai' + {message: err});
