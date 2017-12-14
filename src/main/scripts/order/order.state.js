@@ -8,11 +8,11 @@ angular.module('myApp')
         $stateProvider
             .state('setting', {
                 parent: 'site',
-                url: '/setting',
+                url: '/order',
                 views: {
                     'content@': {
-                        templateUrl: 'scripts/setting/setting.html',
-                        controller: 'SettingController'
+                        templateUrl: 'scripts/order/order.html',
+                        controller: 'OrderController'
                     }
                 }
             });

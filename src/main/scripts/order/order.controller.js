@@ -1,14 +1,14 @@
 angular.module('myApp')
-    .controller('ProductController', function ($scope, $stateParams, StringUtils, API_URL, Button, DateUtils
-        , DataTable, Dialog, ProductService) {
+    .controller('OrderController', function ($scope, $stateParams, StringUtils, API_URL, Button, DateUtils
+        , DataTable, Dialog, OrderService) {
         $scope.status = {
             step: 1,
             type: $stateParams.type
         };
         $scope.title = $scope.status.type === 'available' ? 'Available' : 'Non Available';
-        $scope.product = {};
+        $scope.order = {};
 
-        ProductService.fetchAllCategory()
+        OrderService.fetchAllCategory()
             .then(function (response) {
                 $scope.categories = response.data;
             })
@@ -23,40 +23,42 @@ angular.module('myApp')
             }
         };
 
-        $scope.saveProduct = function saveProduct() {
-            var method = $scope.product._id ? ProductService.updateProduct : ProductService.saveProduct;
-            method.call(null, $scope.product)
-                .then(Dialog.onSuccess.bind(null, 'Success', 'Save product success', $scope.changeView.bind(null, 'back')))
+        $scope.saveOrder = function saveOrder() {
+            var method = $scope.order._id ? OrderService.updateOrder : OrderService.saveOrder;
+            method.call(null, $scope.order)
+                .then(Dialog.onSuccess.bind(null, 'Success', 'Save order success', $scope.changeView.bind(null, 'back')))
                 .catch(Dialog.onFailure.bind(null, 'Fail', 'Please fill full information', null));
         };
 
-        var reloadListProduct = function reloadListProduct() {
-            angular.element(document.querySelector('#productDataTable')).DataTable().ajax.reload(null, false);
+        var reloadListOrder = function reloadListOrder() {
+            angular.element(document.querySelector('#orderDataTable')).DataTable().ajax.reload(null, false);
         };
 
-        $scope.deleteProduct = function deleteProduct(data) {
-            Dialog.deleteDialog('Do you want delete this product?', ProductService.deleteProduct.bind(null, data._id)
-                , reloadListProduct.bind(null));
+        $scope.deleteOrder = function deleteOrder(data) {
+            Dialog.deleteDialog('Do you want delete this order?', OrderService.deleteOrder.bind(null, data._id)
+                , reloadListOrder.bind(null));
         };
 
         $scope.edit = function (data) {
             $scope.$apply(function () {
                 $scope.changeView();
-                $scope.product = data;
+                $scope.order = data;
             });
         };
 
-        var loadProductsList = function loadProductsList() {
+        var loadOrdersList = function loadOrdersList() {
             var options = {
-                url: [API_URL, 'product/fetch'].join(''),
+                url: [API_URL, 'order/fetch'].join(''),
                 columns: [
                     {'title': 'ID', 'data': null},
-                    {'title': 'Name', 'data': 'name'},
-                    {'title': 'Description', 'data': 'description'},
-                    {'title': 'Price', 'data': 'price'},
-                    {'title': 'Quantity', 'data': 'quantity'},
-                    {'title': 'Image url', 'data': 'image'},
-                    {'title': 'Category Name', 'data': 'category.name'},
+                    {'title': 'Name', 'data': 'user.name'},
+                    {'title': 'Address', 'data': 'user.address'},
+                    {'title': 'Phone', 'data': 'user.phone'},
+                    {'title': 'Email', 'data': 'user.email'},
+                    {'title': 'Sex', 'data': 'user.sex'},
+                    {'title': 'Product Name', 'data': 'product.name'},
+                    {'title': 'Quantity', 'data': 'product.quantity'},
+                    {'title': 'Price', 'data': 'product.price'},
                     {'': ''}
                 ],
                 columnDefs: [
@@ -77,17 +79,17 @@ angular.module('myApp')
             };
 
             options.delete = function (data) {
-                $scope.deleteProduct(data);
+                $scope.deleteOrder(data);
             };
             options.edit = function (data) {
                 $scope.edit(data);
             };
-            DataTable.generateDataTable(options, angular.element(document.querySelector('#productDataTable')));
+            DataTable.generateDataTable(options, angular.element(document.querySelector('#orderDataTable')));
         };
 
         $scope.$on('$includeContentLoaded', function (obj, url) {
-            if (url === 'scripts/product/product.list.template.html') {
-                loadProductsList();
+            if (url === 'scripts/order/order.list.template.html') {
+                loadOrdersList();
             }
         });
     });
