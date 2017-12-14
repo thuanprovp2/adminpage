@@ -15,8 +15,8 @@
                     <label class="col-sm-2 control-label no-padding-right">Password</label>
                     <div class="col-sm-4">
                         <input type="password" class="form-control" ng-model="user.password" placeholder="Password"
-                               pattern="[\S]+"
-                               title="Password not contain space"
+                               pattern="[\w\W]{6,}"
+                               title="Password must above 6 character"
                                required
                         >
                     </div>
@@ -60,8 +60,8 @@
                     <label class="col-sm-2 control-label no-padding-right">Gender</label>
                     <div class="col-sm-4">
                         <select class="form-control" ng-model="user.sex" id="gender" required>
-                            <option value="male">Male</option>
-                            <option value="female">Female</option>
+                            <option value="male" ng-selected="user.sex='male'">Male</option>
+                            <option value="female" ng-selected="user.sex='male'">Female</option>
                         </select>
                     </div>
                 </div>
